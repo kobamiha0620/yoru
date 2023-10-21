@@ -1,0 +1,106 @@
+@use "../tools/global" as *;
+main {
+  margin: 0 auto;
+  background-color: $PALETTE_PURE_BLACK;
+}
+.wrap {
+  width: get-percent-size(1366, 1200);
+  max-width: 1200px;
+  margin: 0 auto;
+  // min-height: 100vh;
+
+  @include media-screen-sp() {
+    width: get-percent-size(750, 686);
+  }
+}
+
+/* =================================================================
+loading
+=================================================================*/
+
+.loading {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: $PALETTE_PURE_BLACK;
+}
+
+/* =================================================================
+mainvisual
+=================================================================*/
+
+.mainvisual {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: block;
+
+  @include media-screen-sp() {
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  .mainvisual-video-container {
+    video {
+      min-width: 100%;
+      position: absolute;
+      min-height: 100%;
+    }
+  }
+  .mainvisual-title {
+    width: 421px;
+    position: absolute;
+    display: block;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include media-screen-sp() {
+      width: get-percent-size(750, 497);
+      height: auto;
+    }
+  }
+  .mainvisual-scroll {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    color: $PALETTE_PURE_WHITE;
+
+    &_text {
+      font-family: $FONTFAMILY_EN;
+      font-size: 18px;
+    }
+    &_line {
+      width: 1px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 7px auto 0;
+      position: relative;
+      overflow: hidden;
+
+      @keyframes scrollAnim {
+        0% {
+          top: -100%;
+        }
+        100% {
+          top: 200%;
+        }
+      }
+      &:before {
+        content: " ";
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        animation: scrollAnim 2.5s ease-in-out infinite;
+      }
+    }
+  }
+}

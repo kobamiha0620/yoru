@@ -1,0 +1,88 @@
+@use '../tools/global' as *;
+
+#g-header {
+  position: absolute;
+  color: $PALETTE_PURE_WHITE;
+  font-family: $FONTFAMILY_EN;
+  font-size: $FONTSIZE_PC_TITLE;
+  line-height: 1;
+
+  .site-title {
+    transform: rotate(90deg) translateX(30px);
+    transform-origin: bottom left;
+    left: 15px;
+    top: -18px; //rotate reset
+    position: fixed;
+    z-index: 12;
+
+    @include media-screen-sp() {
+      left: 12px;
+      top: -35px;
+    }
+  }
+  #header-menu {
+    position: fixed;
+    right: 60px;
+    top: 0;
+    padding: 30px 30px 0;
+    cursor: pointer;
+    z-index: 12;
+
+    @include media-screen-sp() {
+      top: -15px;
+      right: 50px;
+    }
+  }
+  .header-snslink {
+    transform: rotate(-90deg);
+    position: fixed;
+    z-index: 12;
+    right: 0;
+    top: -18px;
+    transform-origin: bottom right;
+
+    @include media-screen-sp() {
+      font-size: 18px;
+      top: -30px;
+    }
+
+    ul {
+      display: flex;
+    }
+    .linkitem {
+      padding: 15px 0;
+      margin-left: 25px;
+      // position: relative;
+      // width: fit-content;
+      // &:before {
+      //   position: absolute;
+      //   bottom: 10px;
+      //   left: 0;
+      //   content: "";
+      //   width: 100%;
+      //   height: 2px;
+      //   background: #333;
+      //   transform: scale(0, 1);
+      //   transform-origin: right top;
+      //   transition: transform 0.3s;
+      // }
+
+      // &:hover {
+      //   &:before {
+      //     transform-origin: left top;
+      //     transform: scale(1, 1);
+      //   }
+      // }
+    }
+  }
+}
+
+.page-template-page-about {
+  #g-header {
+    color: $PALETTE_DIRTY_PURPLE;
+  }
+}
+
+#g-header.-menu-open {
+  color: $PALETTE_PURE_BLACK;
+}

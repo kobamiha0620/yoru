@@ -1,0 +1,44 @@
+{
+    "key": "group_611a1b1cf20d4",
+    "title": "Works表示優先度",
+    "fields": [
+        {
+            "key": "field_611a1b1ea4a55",
+            "label": "Works表示優先度",
+            "name": "works_priority",
+            "type": "true_false",
+            "instructions": "表示優先度の高いものが上部に表示されます。\r\n優先して表示したい場合はチェックを入れてください",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "高",
+            "ui_off_text": "低"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": -3,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "modified": 1697794635
+}

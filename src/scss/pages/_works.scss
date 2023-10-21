@@ -1,0 +1,74 @@
+@use '../tools/global' as *;
+
+.worklist-section {
+  // 1366, 1200
+  margin: get-percent-size(1200, 65) 0 0;
+  padding: 0 0 get-percent-size(1200, 110);
+  .worklist-title {
+    color: $PALETTE_PURE_WHITE;
+    font-family: $FONTFAMILY_EN;
+    font-size: 23px;
+    font-weight: $SEMIBOLD;
+  }
+  .worklists {
+    margin: get-percent-size(1200, 62) auto 0;
+    .work-postitem {
+      position: relative;
+      margin: 0 0 16px;
+      overflow: hidden;
+      // min-height: 150px;
+      img {
+        width: 100%;
+      }
+
+      @media screen and (max-width: 350px) {
+        width: 100%;
+      }
+
+      .postitem-text {
+        position: absolute;
+        transform: translateY(100%);
+        transform-origin: left bottom;
+        color: #fff;
+        top: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($PALETTE_PURE_BLACK, 0.8);
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        font-weight: $SEMIBOLD;
+        font-family: $FONTFAMILY_JA;
+        line-height: 1.5;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        backdrop-filter: blur(3px);
+        padding: 20px;
+
+        @include media-screen-sp() {
+          font-size: 13px;
+        }
+
+        &_name {
+          margin-top: auto;
+          text-align: center;
+          @include font-style-jp;
+          transform-origin: center;
+        }
+        &_title {
+          text-align: center;
+          @include font-style-jp;
+          transform-origin: center;
+        }
+
+        &_category {
+          margin: auto 0 15px;
+          font-weight: $REGULAR;
+          font-family: $FONTFAMILY_EN;
+        }
+      }
+    }
+  }
+}

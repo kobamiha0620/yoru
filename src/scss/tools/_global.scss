@@ -1,0 +1,39 @@
+@forward '../modules/function';
+@forward '../modules/media-screen';
+@forward '../modules/variable';
+
+@use '../modules/variable' as *;
+
+@mixin font-style-jp {
+  transform: scaleX(0.85);
+  transform-origin: left top;
+  font-family: $FONTFAMILY_JA;
+  width: 119%;
+}
+
+@mixin close-button {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  cursor: pointer;
+  &:before {
+    content: " ";
+    width: 56px;
+    height: 1px;
+    background-color: rgba($PALETTE_PURE_BLACK, 0.9);
+    position: absolute;
+    display: block;
+    transform: rotate(45deg);
+    transform-origin: left;
+  }
+  &:after {
+    content: " ";
+    width: 56px;
+    height: 1px;
+    background-color: rgba($PALETTE_PURE_BLACK, 0.9);
+    position: absolute;
+    display: block;
+    transform: rotate(135deg) translate(-50%, -28px);
+    transform-origin: left;
+  }
+}

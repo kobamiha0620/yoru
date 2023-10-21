@@ -1,0 +1,293 @@
+@use '../tools/global' as *;
+
+.breadcrumbs {
+  font-size: 23px;
+  font-weight: $SEMIBOLD;
+  font-family: $FONTFAMILY_EN;
+  @include media-screen-sp() {
+    font-size: 20px;
+    margin-left: get-percent-size(685, 110);
+  }
+}
+
+.section-about {
+  background-color: $PALETTE_LIGHT_PURPLE;
+  color: $PALETTE_DIRTY_PURPLE;
+  font-family: $FONTFAMILY_JA;
+  padding: 54px 0 170px;
+  // section-inner style.scss
+  @include media-screen-sp() {
+    padding: 50px 0 get-percent-size(685, 200);
+  }
+  .about-main {
+    margin: get-percent-size(1200, 110) auto get-percent-size(1200, 100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include media-screen-sp() {
+      margin: get-percent-size(685, 240) auto get-percent-size(685, 173);
+      display: block;
+    }
+    &_image {
+      width: get-percent-size(1200, 482);
+      max-width: 482px;
+      mix-blend-mode: multiply; //ie非対応
+      margin: 0 auto;
+      @include media-screen-sp() {
+        width: get-percent-size(685, 482);
+        margin: 0 auto get-percent-size(685, 140);
+      }
+    }
+
+    &_textblock {
+      width: get-percent-size(1200, 592);
+      @include media-screen-sp() {
+        width: 100%;
+      }
+
+      .title {
+        font-size: 30px;
+        font-weight: $SEMIBOLD;
+        font-family: $FONTFAMILY_EN;
+        @include media-screen-sp() {
+          font-size: 25px;
+        }
+      }
+      .text {
+        margin: get-percent-size(600, 40) 0 0;
+        line-height: 2.3;
+        transform: scaleX(0.85);
+        transform-origin: left top;
+        width: 119%;
+
+        p:not(:last-child) {
+          display: block;
+          margin: 0 0 get-percent-size(600, 40);
+        }
+      }
+      .links {
+        margin: get-percent-size(600, 50) 0 0;
+
+        @include media-screen-sp() {
+          margin: get-percent-size(685, 50) auto 0;
+        }
+
+        .btn {
+          @include media-screen-sp() {
+            margin: 0 auto;
+          }
+        }
+
+        .btn:not(:last-child) {
+          margin: 0 0 25px;
+          @include media-screen-sp() {
+            margin: 0 auto 25px;
+          }
+        }
+      }
+    }
+  }
+  .about-member {
+    display: flex;
+    position: relative;
+    margin: 0 auto get-percent-size(1200, 125);
+    padding: get-percent-size(1200, 77) 0 0;
+    justify-content: space-between;
+    align-items: center;
+    @include media-screen-sp() {
+      display: block;
+    }
+    &_title {
+      position: absolute;
+      top: 0;
+      font-family: $FONTFAMILY_EN;
+      font-size: 18px;
+      @include media-screen-sp() {
+        font-size: 20px;
+      }
+    }
+    &:after {
+      content: " ";
+      width: get-percent-size(1200, 1119);
+      height: 1px;
+      background-color: $PALETTE_DIRTY_PURPLE;
+      display: block;
+      position: absolute;
+      top: 3.4%;
+      right: 0;
+      @include media-screen-sp() {
+        width: get-percent-size(685, 529);
+        top: 2.4%;
+      }
+    }
+    &_image {
+      width: get-percent-size(1200, 205);
+      max-width: 205px;
+      @include media-screen-sp() {
+        width: get-percent-size(685, 327);
+        max-width: 327px;
+        margin: get-percent-size(685, 105) auto 0;
+      }
+    }
+    &_text {
+      width: get-percent-size(1200, 940);
+      @include media-screen-sp() {
+        width: 100%;
+        margin: get-percent-size(685, 85) auto 0;
+      }
+
+      .job {
+        font-size: $FONTSIZE_PC_TITLE;
+        font-family: $FONTFAMILY_EN;
+        @include media-screen-sp() {
+          font-size: 16px;
+        }
+      }
+      .name {
+        font-size: 31px;
+        font-family: $FONTFAMILY_JA;
+        font-weight: $SEMIBOLD;
+        transform: scaleX(0.85);
+        transform-origin: left top;
+        margin: 17px 0 0;
+        @include media-screen-sp() {
+          font-size: 29px;
+        }
+
+        span {
+          font-size: $FONTSIZE_PC_TITLE;
+          font-family: $FONTFAMILY_EN;
+          font-weight: $REGULAR;
+          transform: scaleX(1);
+          margin-left: 19px;
+          display: inline-block;
+          @include media-screen-sp() {
+            font-size: 16px;
+          }
+        }
+      }
+      p {
+        display: inline-block;
+        margin: 20px 0 0;
+        font-family: $FONTFAMILY_JA;
+        transform: scaleX(0.85);
+        transform-origin: left top;
+        width: 118%;
+        font-size: 18px;
+        font-weight: $SEMIBOLD;
+        line-height: 2;
+        @include media-screen-sp() {
+          font-weight: 400;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  .about-recruit {
+    display: flex;
+    position: relative;
+    margin: 0 auto get-percent-size(1200, 125);
+    padding: get-percent-size(1200, 77) 0 0;
+    justify-content: space-between;
+    align-items: center;
+
+    @include media-screen-sp() {
+      display: block;
+      margin: 0 auto;
+    }
+
+    &_title {
+      position: absolute;
+      top: 0;
+      font-family: $FONTFAMILY_EN;
+      font-size: 18px;
+      @include media-screen-sp() {
+        font-size: 20px;
+      }
+    }
+    &:after {
+      content: " ";
+      width: get-percent-size(1200, 1119);
+      height: 1px;
+      background-color: $PALETTE_DIRTY_PURPLE;
+      display: block;
+      position: absolute;
+      top: 3.4%;
+      right: 0;
+      @include media-screen-sp() {
+        width: get-percent-size(685, 529);
+        top: 1.4%;
+      }
+    }
+    &_image {
+      width: get-percent-size(1200, 205);
+      max-width: 205px;
+      @include media-screen-sp() {
+        width: get-percent-size(685, 327);
+        max-width: 327px;
+        margin: get-percent-size(685, 105) auto 0;
+      }
+    }
+    &_text {
+      width: get-percent-size(1200, 585);
+      font-family: $FONTFAMILY_JA;
+      margin: 18px 0 0;
+      @include media-screen-sp() {
+        width: 100%;
+        margin: get-percent-size(685, 85) auto 0;
+      }
+      .title {
+        font-size: 26px;
+        font-weight: $SEMIBOLD;
+        transform: scaleX(0.85);
+        transform-origin: left top;
+        width: 119%;
+        @include media-screen-sp() {
+          font-size: 25px;
+        }
+      }
+
+      .text-wrap {
+        display: flex;
+        width: 118%;
+        font-size: 18px;
+        transform: scaleX(0.9);
+        transform-origin: left top;
+        margin: 30px 0 0;
+
+        @include media-screen-sp() {
+          font-size: 16px;
+          justify-content: space-between;
+          width: 112%;
+        }
+
+        .text {
+          line-height: 2;
+          margin: 0 55px 0 0;
+          @include media-screen-sp() {
+            margin: 0;
+          }
+        }
+
+        ul {
+          li {
+            font-weight: $SEMIBOLD;
+            line-height: 2;
+            &:before {
+              content: "・";
+            }
+          }
+        }
+      }
+    }
+    &_button {
+      margin: auto 0 0;
+      @include media-screen-sp() {
+        margin: get-percent-size(685, 90) auto 0;
+        .btn {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

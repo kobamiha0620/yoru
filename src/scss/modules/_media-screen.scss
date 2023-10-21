@@ -1,0 +1,13 @@
+@use './variable' as *;
+
+@mixin media-screen-pc {
+  @media screen and (min-width: $BREAK_POINT + 0.1px) {
+    @content;
+  }
+} //PC時スタイル
+
+@mixin media-screen-sp {
+  @media screen and (max-width: $BREAK_POINT) {
+    @content;
+  }
+} //SP時スタイル

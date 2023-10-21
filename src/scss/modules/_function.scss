@@ -1,0 +1,16 @@
+@use 'sass:math';
+
+@function get-percent-size($base, $target) {
+  @return math.div($target, $base) * 100%;
+}
+
+// TODO:下2つもDartSass形式に修正
+
+@function get_vw($size, $viewport: 1280) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+// @function rem($value) {
+//   @return #{$value / 16}rem;
+// }

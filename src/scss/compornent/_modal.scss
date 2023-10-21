@@ -1,0 +1,328 @@
+@use '../tools/global' as *;
+
+/* =================================================================
+modal common style
+=================================================================*/
+
+.modal-area {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  // transform: translate(150%, -50%);
+  transform: translate(0%, -50%);
+  overflow-y: auto;
+  max-width: 1140px;
+  width: get-percent-size(1366, 1140);
+  min-height: 80vh;
+  z-index: 12;
+  background-color: $PALETTE_LIGHT_PURPLE;
+  display: none;
+  opacity: 0;
+
+  &.is-open {
+    display: block;
+    animation: framein 0.5s ease-in-out forwards;
+  }
+  &.close-anime {
+    animation: frameout 0.3s ease-in-out forwards;
+  }
+
+  @include media-screen-sp() {
+    width: get-percent-size(750, 680);
+    margin: 0;
+    left: auto;
+    right: 0;
+    min-height: 90vh;
+    min-height: calc(var(--vh, 1vh) * 90);
+
+    &.is-open {
+      display: block;
+      animation: frameinSp 0.5s ease-in-out forwards;
+    }
+    &.close-anime {
+      animation: frameoutSp 0.3s ease-in-out forwards;
+    }
+  }
+}
+
+.modal-bg {
+  opacity: 0;
+  background-color: rgba($PALETTE_PURE_BLACK, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 12;
+  display: none;
+  backdrop-filter: blur(2px);
+  &.is-open {
+    display: block;
+    animation: fadein 0.3s ease-in-out forwards;
+  }
+  &.close-anime {
+    animation: fadeout 0.3s ease-in-out forwards;
+    pointer-events: none;
+  }
+}
+
+/* =================================================================
+modal open animation
+=================================================================*/
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes framein {
+  80% {
+    opacity: 0;
+    transform: translate(-30%, -50%);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes frameout {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100%, -50%);
+  }
+}
+
+/* =============================
+SP 
+*/
+@keyframes frameinSp {
+  80% {
+    opacity: 0;
+    transform: translate(100%, -50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0%, -50%);
+  }
+}
+@keyframes frameoutSp {
+  0% {
+    opacity: 1;
+    transform: translate(0%, -50%);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100%, -50%);
+  }
+}
+
+/* =================================================================
+modal inner content layout
+=================================================================*/
+
+.work-entry {
+  margin: 0 auto;
+  background-color: $PALETTE_LIGHT_PURPLE;
+  height: auto;
+  &-inner {
+    max-width: 600px;
+    width: get-percent-size(1140, 600);
+    margin: 0 auto;
+    padding: get-percent-size(1140, 80) 0 get-percent-size(1140, 145);
+    color: $PALETTE_DIRTY_PURPLE;
+    font-family: $FONTFAMILY_JA;
+    @include media-screen-sp() {
+      width: get-percent-size(680, 616);
+      padding: 50px 0;
+    }
+
+    .entry-header {
+      text-align: center;
+      font-size: 28px;
+      font-weight: $SEMIBOLD;
+      margin: 0 auto 20px;
+      line-height: 1.5;
+      @include font-style-jp;
+      @include media-screen-sp() {
+        font-size: 15px;
+        margin: 0 auto 8px;
+      }
+    }
+
+    .entry-catecory {
+      text-align: center;
+      font-size: 20px;
+      font-family: $FONTFAMILY_EN;
+      margin: 0 auto 65px;
+      @include media-screen-sp() {
+        font-size: 13px;
+        margin: 0 auto 30px;
+      }
+    }
+
+    .work-single-content {
+      h1 {
+        margin: 0 auto 20px;
+        font-size: 30px;
+        @include font-style-jp;
+        font-family: $FONTFAMILY_EN_EX, $FONTFAMILY_JA;
+        font-weight: $BOLD;
+        @include media-screen-sp() {
+          font-size: 20px;
+          margin: 0 auto 15px;
+        }
+      }
+      h2 {
+        margin: 0 auto 20px;
+        font-size: 27px;
+        @include font-style-jp;
+        font-family: $FONTFAMILY_EN_EX, $FONTFAMILY_JA;
+        font-weight: $SEMIBOLD;
+        @include media-screen-sp() {
+          font-size: 17px;
+          margin: 0 auto 15px;
+        }
+      }
+      h3 {
+        margin: 0 auto 20px;
+        font-size: 25px;
+        @include font-style-jp;
+        font-family: $FONTFAMILY_EN_EX, $FONTFAMILY_JA;
+        @include media-screen-sp() {
+          font-size: 16px;
+          margin: 0 auto 15px;
+        }
+      }
+      p {
+        margin: 0 auto 20px;
+        font-size: 22px;
+        @include font-style-jp;
+        font-family: $FONTFAMILY_EN_EX, $FONTFAMILY_JA;
+        line-height: 1.9;
+        @include media-screen-sp() {
+          font-size: 13px;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      ul {
+        margin: 0 auto 20px;
+        li {
+          position: relative;
+          @include font-style-jp;
+
+          font-family: $FONTFAMILY_EN_EX, $FONTFAMILY_JA;
+          font-size: 18px;
+          line-height: 1.5;
+          &:before {
+            content: "・";
+          }
+          @include media-screen-sp() {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .wp-block-quote {
+        background-color: #f7f5fa;
+        position: relative;
+        padding: 15px 20px 15px 22px;
+        line-height: 1.5;
+        margin: 0 auto 10px;
+
+        &:before {
+          content: "";
+          display: block;
+          width: 4px;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: $PALETTE_DIRTY_PURPLE;
+        }
+        p {
+          font-size: 20px;
+          @include media-screen-sp() {
+            font-size: 13px;
+          }
+        }
+        cite {
+          font-size: 12px;
+          margin: 10px 0 0;
+          display: inline-block;
+          color: #7c6987;
+          @include media-screen-sp() {
+            font-size: 10px;
+          }
+        }
+      }
+
+      .wp-block-image {
+        margin: 0 auto 80px;
+        height: auto;
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        @include media-screen-sp() {
+          margin: 0 auto 30px;
+        }
+      }
+
+      .wp-block-embed {
+        margin: 0 auto 80px;
+        @include media-screen-sp() {
+          margin: 0 auto 30px;
+        }
+      }
+    }
+  }
+
+  .modal-close {
+    @include close-button;
+    position: sticky;
+    position: -webkit-sticky;
+    float: right;
+    top: 15px;
+    right: 15px;
+    z-index: 15;
+  }
+}

@@ -1,0 +1,20 @@
+@use '../tools/global' as *;
+
+footer {
+  .footer-inner {
+    background-color: #1e1e1e;
+    text-align: center;
+    font-family: $FONTFAMILY_EN;
+    color: $PALETTE_PURE_WHITE;
+    padding: 7px 0;
+    font-size: 14px;
+  }
+}
+
+.page-template-page-about {
+  footer {
+    .footer-inner {
+      background-color: $PALETTE_DIRTY_PURPLE;
+    }
+  }
+}
