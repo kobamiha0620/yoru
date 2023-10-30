@@ -64,19 +64,19 @@ function gettmplurl($atts, $content = null)
   }
   add_theme_support('responsive-embeds');
 
-  function my_enqueue()
-  {
-      // 特定のページのみで読み込む(ここでは、スラッグ「sample-page」という固定ページにアクセスすると読み込まれる)
-      if (is_single()) {
-          wp_enqueue_script('ajax-script', get_template_directory_uri().'/src/js/work-modal-single.js', array('jquery'), null, true);
-      } else {
-          wp_enqueue_script('ajax-script', get_template_directory_uri().'/src/js/work-modal.js', array('jquery'), null, true);
-      }
-      // Ajaxの処理を書いたjsの読み込み
-      // 「ad_url.ajax_url」のようにしてURLを指定できるようになる
-      wp_localize_script('ajax-script', 'ad_url', array( 'ajax_url' => admin_url('admin-ajax.php') ));
-  }
-  add_action('wp_enqueue_scripts', 'my_enqueue');
+//   function my_enqueue()
+//   {
+//       // 特定のページのみで読み込む(ここでは、スラッグ「sample-page」という固定ページにアクセスすると読み込まれる)
+//       if (is_single()) {
+//           wp_enqueue_script('ajax-script', get_template_directory_uri().'/src/js/work-modal-single.js', array('jquery'), null, true);
+//       } else {
+//           wp_enqueue_script('ajax-script', get_template_directory_uri().'/src/js/work-modal.js', array('jquery'), null, true);
+//       }
+//       // Ajaxの処理を書いたjsの読み込み
+//       // 「ad_url.ajax_url」のようにしてURLを指定できるようになる
+//       wp_localize_script('ajax-script', 'ad_url', array( 'ajax_url' => admin_url('admin-ajax.php') ));
+//   }
+//   add_action('wp_enqueue_scripts', 'my_enqueue');
 
 
   function view_id()
@@ -105,6 +105,26 @@ function register_category_name()
     );
 }
 
+
+
+function exclude_category_filter( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ){
+        return $query;
+    }
+ 
+    //カテゴリーslugからIDへ
+    $cat_id = get_category_by_slug('archive')->term_id;
+ 
+    //カテゴリー一覧の「n｣は表示する
+    if ( is_archive() && is_category('n') ) {
+        return $query;
+    }
+ 
+
+     return $query;
+ }
+ add_action( 'pre_get_posts', 'exclude_category_filter' );
+ 
 //$objectは現在の投稿の詳細データが入る
 function get_category_name($object)
 {
@@ -114,6 +134,7 @@ function get_category_name($object)
     }
     return $cat_name;
 }
+
 
 add_filter('allowed_block_types_all', function ($allowed_block_types, $block_editor_context) {
     $allowed_block_types = [
@@ -165,6 +186,28 @@ add_action('admin_print_styles-post-new.php', 'custom_hidden_postnew_page_sticky
 
 add_theme_support('title-tag');
 
+//アーカイブ
+function post_has_archive($args, $post_type){
+    if('post'== $post_type){
+      $args['rewrite']=true;
+      $args['has_archive']='works';
+    }
+    return $args;
+  }
+  
+  add_filter('register_post_type_args', 'post_has_archive', 10, 2);
+    
+  function my_body_class($classes)
+  {
+      if (is_page()) {
+          $page = get_post();
+          $classes[] = $page->post_name;
+      }
+      return $classes;
+  }
+  add_filter('body_class', 'my_body_class');
+
+    
 remove_action('wp_head', 'wp_generator');// WordPressのバージョン
 remove_action('wp_head', 'wp_shortlink_wp_head');// 短縮URLのlink
 remove_action('wp_head', 'wlwmanifest_link');// ブログエディターのマニフェストファイル

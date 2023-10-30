@@ -1,5 +1,7 @@
-let vw = window.innerWidth;
 
+
+let vw = window.innerWidth;
+//ウィンドウの高さを取得
 const setFillHeight = function ()  {
   const vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', vh + 'px');
@@ -77,42 +79,49 @@ window.addEventListener('DOMContentLoaded', () => {
   // MagicGrid
   let isTab = vw > 768;
 
-  $('.worklists').imagesLoaded(function() {
+  $('.worklist').imagesLoaded(function() {
     if (this.elements.length === 0) return;
 
     let msnry = new Masonry(this.elements[0], {
-      itemSelector: '.work-postitem',
-      gutter: isTab ? 11 : 8,
-      percentPosition: true,
+      itemSelector: '.worklist__blc',
+      // gutter: 12,
+      percentPosition: true,  
+
     });
   });
 
-  const mqList = window.matchMedia('(min-width:768px)');
-
   const headerMenu = document.getElementById('header-menu');
   const menuOpen = document.getElementById('open-menu');
-  const menuClose = document.getElementById('menu-close');
-  const header = document.getElementById('g-header');
-  const heroVideo = document.getElementById('hero-video');
-  const movieModalBtn = document.getElementById('open-movie-modal');
-  const movieModalBtnAbout = document.getElementById('open-movie-modal-about');
+ const header = document.getElementById('g-header');
+ const movieModalBtn = document.getElementById('open-movie-modal');
+ const movieModalBtnPc = document.getElementById('open-movie-modal-pc');
+ const movieModalBtnAbout = document.getElementById('open-movie-modal-about');
+
 
   const movieModal = new MovieModal();
 
   headerMenu.addEventListener('click', function(){
-    $('#open-menu').fadeIn();
-    headerMenu.style.pointerEvents = 'none';
-    header.classList.add('-menu-open');
-    headerMenu.innerHTML = 'close';
-    $('html, body').css('overflow', 'hidden');
+    if(headerMenu.classList.contains('active')){
+      headerMenu.classList.remove('active');
+      menuOpen.classList.remove('panelactive');
+      // headerMenu.style.pointerEvents = 'auto';
+      header.classList.remove('-menu-open');
+  　　 $('html, body').removeAttr('style'); 
+
+    }else{
+      console.log('no');
+
+      headerMenu.classList.add('active');
+      menuOpen.classList.add('panelactive');
+      // headerMenu.style.pointerEvents = 'none';
+      header.classList.add('-menu-open');
+      $('html, body').css('overflow', 'hidden');
+    }
+
   });
 
-  menuClose.addEventListener('click', function() {
-    $('#open-menu').fadeOut();
-    headerMenu.style.pointerEvents = 'auto';
-    header.classList.remove('-menu-open');
-    headerMenu.innerHTML = 'Menu';
-　　 $('html, body').removeAttr('style');
+  movieModalBtnPc.addEventListener('click', function(e) {
+    movieModal.openModal(e.target.dataset.movieId);
   });
 
   movieModalBtn.addEventListener('click', function(e) {
@@ -125,13 +134,14 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
   $('.menu-links').click(function(e){
     if (!e.target.dataset && !e.target.dataset.movieId) {
       $('#open-menu').fadeOut();
       headerMenu.style.pointerEvents = 'auto';
       header.classList.remove('-menu-open');
       headerMenu.innerHTML = 'Menu';
-  　　 $('html, body').removeAttr('style');
+     $('html, body').removeAttr('style');
     }
    });
 
@@ -149,11 +159,55 @@ $(window).on('load', function(){
 });
 
 window.addEventListener('resize', function () {
+  const mqList = window.matchMedia('(min-width:768px)');
+  const headerMenu = document.getElementById('header-menu');
+  const menuOpen = document.getElementById('open-menu');
+  const heroVideo = document.getElementById('hero-video');
+  const movieModalBtn = document.getElementById('open-movie-modal');
+  const movieModalBtnPc = document.getElementById('open-movie-modal-pc');
+  const movieModalBtnAbout = document.getElementById('open-movie-modal-about-pc');
+  const movieModalBtnAboutPc = document.getElementById('open-movie-modal-about');
+  const header = document.getElementById('g-header');
+
   if (vw === window.innerWidth) {
   　// 画面の横幅にサイズ変動がないので処理を終える
     return;
   }
   // 画面の横幅のサイズ変動があった時のみ高さを再計算する
   vw = window.innerWidth;
+  if(headerMenu.classList.contains('active')){
+    
+    headerMenu.classList.remove('active');
+    menuOpen.classList.remove('panelactive');
+    // headerMenu.style.pointerEvents = 'auto';
+    header.classList.remove('-menu-open');
+　　 $('html, body').removeAttr('style'); 
+  }
   setFillHeight();
 });
+
+
+// window.onload = function() {
+//   const headerMenu = document.getElementById('header-menu');
+
+//   headerMenu.addEventListener('click', function(){
+  
+
+//     // headerMenu.style.pointerEvents = 'none';
+//     // header.classList.add('-menu-open');
+//     // headerMenu.innerHTML = 'close';
+//     // $('html, body').css('overflow', 'hidden');
+//   });
+  
+  
+// }
+
+
+
+
+// var elem = document.querySelector('.worklist__inner');
+// var msnry = new Masonry( elem, {
+//   // options
+//   itemSelector: '.worklist__blc'
+// });
+

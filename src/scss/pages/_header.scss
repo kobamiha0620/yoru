@@ -1,78 +1,199 @@
-@use '../tools/global' as *;
+@use '../tools/global'as *;
 
 #g-header {
-  position: absolute;
-  color: $PALETTE_PURE_WHITE;
+  color: #000;
   font-family: $FONTFAMILY_EN;
   font-size: $FONTSIZE_PC_TITLE;
   line-height: 1;
 
   .site-title {
-    transform: rotate(90deg) translateX(30px);
-    transform-origin: bottom left;
-    left: 15px;
-    top: -18px; //rotate reset
+    transform: rotate(90deg) translateX(0);
+    transform-origin: top left;
+    left: 52px;
+    top: 0; //rotate reset
     position: fixed;
-    z-index: 12;
+    @include fz(72);
+    font-style: italic;
+    line-height: 0.9;
 
     @include media-screen-sp() {
-      left: 12px;
-      top: -35px;
+      @include fz(24);
+      left: 18px;
+      top: 18px;
     }
   }
+
+
   #header-menu {
-    position: fixed;
-    right: 60px;
-    top: 0;
-    padding: 30px 30px 0;
-    cursor: pointer;
-    z-index: 12;
+    white-space: nowrap;
+    text-indent: -9999px;
+    .header__btn {
+      display: none;
+    }
+
 
     @include media-screen-sp() {
-      top: -15px;
-      right: 50px;
+      .header__btn {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        &--areap {
+          transition: all .4s;
+        }
+
+        span {
+          display: inline-block;
+          transition: all .4s;
+
+          /*アニメーションの設定*/
+          position: absolute;
+          left: 0;
+          height: 2px;
+          background: #000;
+          width: 100%;
+
+          &:nth-of-type(1) {
+            top: 9px;
+          }
+
+          &:nth-of-type(2) {
+            top: 20px;
+          }
+
+        }
+
+
+      }
+      &.active {
+        .header__btn--area {
+          transform: rotateY(-360deg);
+        }
+        .header__btn{
+          span {
+            &:nth-of-type(1) {
+              top: 15px;
+              left: 0;
+              transform: translateY(0px) rotate(-135deg);
+              width: 100%;
+            }
+  
+            &:nth-of-type(2) {
+              top: 15px;
+              left: 0;
+              transform: translateY(0px) rotate(135deg);
+              width: 100%;
+            }
+          }
+        }
+
+      }
+
+      display: block;
+      position: fixed;
+
+      padding: 0;
+      cursor: pointer;
+      z-index: 12;
+      top: 18px;
+      right: 18px;
     }
   }
-  .header-snslink {
-    transform: rotate(-90deg);
-    position: fixed;
-    z-index: 12;
-    right: 0;
-    top: -18px;
-    transform-origin: bottom right;
+
+  #header-menu-pc {
+    display: block;
+    padding: 0;
+    .menu-links {
+      .link{
+        @include fz(24);
+        line-height: 1;
+        font-style: italic;
+        display: block;
+        font-family: $FONTFAMILY_EN;
+        transition: 0.5s;
+        &:hover {
+          color: #FFF;
+          transition: 0.5s;
+        }
+      }
+
+
+    }
+
 
     @include media-screen-sp() {
-      font-size: 18px;
-      top: -30px;
+      display: none;
+
+    }
+  }
+
+  .header-snslink {
+    position: fixed;
+    z-index: 12;
+    right: 17px;
+    top: 22px;
+    width: 30px;
+    transform-origin: 0 0;
+    transform: none;
+
+
+    @include media-screen-sp() {
+      top: 72px;
+      right: 18px;
     }
 
-    ul {
-      display: flex;
-    }
+
     .linkitem {
-      padding: 15px 0;
-      margin-left: 25px;
-      // position: relative;
-      // width: fit-content;
-      // &:before {
-      //   position: absolute;
-      //   bottom: 10px;
-      //   left: 0;
-      //   content: "";
-      //   width: 100%;
-      //   height: 2px;
-      //   background: #333;
-      //   transform: scale(0, 1);
-      //   transform-origin: right top;
-      //   transition: transform 0.3s;
-      // }
+      padding: 0;
+      margin: 0 0 27px;
 
-      // &:hover {
-      //   &:before {
-      //     transform-origin: left top;
-      //     transform: scale(1, 1);
-      //   }
-      // }
+
+      a.instagram {
+        background: url("./dist/images/icon/logo_insta.svg") no-repeat 0 0;
+        width: 30px;
+        height: 30px;
+        white-space: nowrap;
+        text-indent: -9999px;
+        display: block;
+        background-size: 100% auto;
+        transition: 0.3s;
+
+        &:hover{
+          background: url("./dist/images/icon/logo_insta_white.svg") no-repeat 0 0;
+          transition: 0.3s;
+          background-size: 100% auto;
+          @include media-screen-sp() {
+            background: url("./dist/images/icon/logo_insta.svg") no-repeat 0 0;
+            background-size: 100% auto;
+          }
+        }
+
+
+      }
+
+      a.x {
+        background: url("./dist/images/icon/logo_x.svg") no-repeat 0 0;
+        width: 30px;
+        height: 30px;
+        white-space: nowrap;
+        text-indent: -9999px;
+        display: block;
+        background-size: 100% auto;
+        transition: 0.3s;
+
+        &:hover{
+          background: url("./dist/images/icon/logo_x_white.svg") no-repeat 0 0;
+          transition: 0.3s;
+          background-size: 100% auto;
+          @include media-screen-sp() {
+            background: url("./dist/images/icon/logo_x.svg") no-repeat 0 0;
+            background-size: 100% auto;
+          }
+        }
+      }
+
+
     }
   }
 }
@@ -85,4 +206,214 @@
 
 #g-header.-menu-open {
   color: $PALETTE_PURE_BLACK;
+  
+}
+
+
+.header {
+  &__feature {
+    @include fz(24);
+    line-height: 1;
+    font-style: italic;
+    white-space: nowrap;
+
+    @include media-screen-sp() {
+      display: none;
+    }
+
+  }
+
+  &__logo {
+    background: url("./dist/images/icon/main-logo-black.png") no-repeat 0 0;
+    width: 240px;
+    height: 96px;
+    margin-top: 60px;
+    white-space: nowrap;
+    text-indent: -9999px;
+    display: block;
+    background-size: 100% auto;
+    transition: 0.5s;
+    &:hover{
+      background: url("./dist/images/icon/main-logo-white.png") no-repeat 0 0;
+      transition: 0.5s;
+      background-size: 100% auto;
+    }
+    @include media-screen-tb() {
+      width: 192px;
+      height: 77px;
+      
+    }
+
+    @include media-screen-sp() {
+      width: 136px;
+      height: 55px;
+      margin: 7.3vw 0 0 12vw;
+      &:hover{
+        background: url("./dist/images/icon/main-logo-black.png") no-repeat 0 0;
+        transition: 0.6s;
+        background-size: 100% auto;
+      }
+    }
+  }
+
+  &__pcmenu {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1632px;
+    width: 100%;
+    margin: 0 auto 80px;
+
+    @include media-screen-sp() {
+      max-width: 100%;
+      display: block;
+      margin: 0 0 7.6vw;
+    }
+  }
+
+  &__fixed {
+    padding: 0 144px;
+
+    @include media-screen-sp() {
+      padding: 0;
+    }
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: flex-end;
+
+  &__ttl {
+    @include fz(36);
+    font-style: italic;
+    margin: 0 36px 0 0;
+  }
+
+  &__lists {
+    font-style: italic;
+    @include fz(24);
+    overflow: hidden;
+
+    li {
+      float: left;
+      padding-left: 6px;
+
+      &::before {
+        content: "/";
+        padding-right: 6px;
+        display: inline-block;
+        
+      }
+
+      &:first-child {
+        padding-left: 0;
+
+        &::before {
+          content: "";
+          padding-right: 0;
+        }
+      }
+      a{
+        transition: 0.3s;
+        &:hover{
+          transition: 0.3s;
+          color: #FFF;
+          @include media-screen-sp() {
+            color: #000;
+          }
+
+        }
+      }
+
+    }
+  }
+
+  @include media-screen-sp() {
+    display: block;
+    margin: 0 90px 0 12vw;
+
+    &__ttl {
+      @include fz(24);
+      margin: 0 0 10px;
+    }
+
+    &__lists {
+      @include fz(16);
+
+    }
+  }
+
+}
+
+//headerメニュー
+body.category-motion-graphic {
+    .navigation__lists{
+        .category-motion-graphic{
+          a{
+            color: #FFF;
+
+          }
+        }
+    } 
+}
+
+body.category-archive {
+  .navigation__lists{
+      .category-archive{
+        a{
+          color: #FFF;
+
+        }
+      }
+  } 
+}
+body.category-artwork {
+  .navigation__lists{
+      .category-artwork{
+        a{
+          color: #FFF;
+
+        }
+      }
+  } 
+}
+body.category-cm {
+  .navigation__lists{
+      .category-cm{
+        a{
+          color: #FFF;
+
+        }
+      }
+  } 
+}
+body.category-video {
+  .navigation__lists{
+      .category-video{
+        a{
+          color: #FFF;
+
+        }
+      }
+  } 
+}
+body.home {
+  .navigation__lists{
+      .home{
+        a{
+          color: #FFF;
+
+        }
+      }
+  } 
+}
+body.others {
+  .navigation__lists{
+      .others{
+        a{
+          color: #FFF;
+
+        }
+      }
+  } 
 }

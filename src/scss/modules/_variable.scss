@@ -14,14 +14,14 @@ $BREAK_POINT: 768px;
 //--------------------------------------------------------------------------
 
 // common colors
-$PALETTE_PURE_BLACK: #000;
+$PALETTE_PURE_BLACK: #DDD;
 $PALETTE_PURE_WHITE: #fff;
 $PALETTE_OFF_WHITE: #fcfafa;
 $PALETTE_LIGHT_GLAY: #eeecec;
 $PALETTE_MEDIUM_GLAY: #707070;
 $PALETTE_DARK_GLAY: #343434;
 $PALETTE_DIRTY_RED: #95565c;
-
+$bc_grey: #DDD;
 //ex color
 $PALETTE_LIGHT_PURPLE: #f0eef3;
 $PALETTE_DIRTY_PURPLE: #320050;
@@ -49,10 +49,24 @@ $FONTSIZE_SP_TITLE: 18px;
 $FONTSIZE_SP_TEXT: 14px;
 
 //font-family
-$FONTFAMILY_EN: "Roboto Condensed", "ヒラギノ角ゴシック", "Hiragino Sans",
+$FONTFAMILY_EN: adobe-garamond-pro, 'Noto Sans JP', "ヒラギノ角ゴシック", "Hiragino Sans",
   YuGothic, "Yu Gothic", sans-serif;
-$FONTFAMILY_EN_EX: "Roboto", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3",
+$FONTFAMILY_EN_EX: adobe-garamond-pro, 'Noto Sans JP', "ヒラギノ角ゴ ProN W3",
   "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic", sans-serif;
 
-$FONTFAMILY_JA: "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic",
+$FONTFAMILY_JA: 'Noto Sans JP', "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic",
   sans-serif; //暫定
+
+$fontfamily_spc: presicav, sans-serif;
+
+
+@mixin bg(){
+  background-size: 100% auto;
+  white-space: nowrap;
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  display: block;
+}
+@mixin fz($size) {
+font-size: calc($size / 16) + rem;
+}

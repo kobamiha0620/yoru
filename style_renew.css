@@ -1085,34 +1085,6 @@ modal inner content layout
   }
 }
 
-body.category-motion-graphic .navigation__lists .category-motion-graphic a {
-  color: #FFF;
-}
-
-body.category-archive .navigation__lists .category-archive a {
-  color: #FFF;
-}
-
-body.category-artwork .navigation__lists .category-artwork a {
-  color: #FFF;
-}
-
-body.category-cm .navigation__lists .category-cm a {
-  color: #FFF;
-}
-
-body.category-video .navigation__lists .category-video a {
-  color: #FFF;
-}
-
-body.home .navigation__lists .home a {
-  color: #FFF;
-}
-
-body.others .navigation__lists .others a {
-  color: #FFF;
-}
-
 footer {
   padding-top: 144px;
 }
@@ -1126,34 +1098,6 @@ footer .footer-inner {
 @media screen and (max-width: 768px) {
   footer {
     padding-top: 20vw;
-  }
-}
-
-.nav__bottom {
-  margin-left: 144px;
-  margin-right: 3%;
-  padding-top: 144px;
-  box-sizing: border-box;
-  font-size: 1rem;
-  font-family: adobe-garamond-pro, "Noto Sans JP", "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic", sans-serif;
-}
-.nav__bottom .navigation {
-  justify-content: flex-end;
-}
-.nav__bottom .navigation__ttl {
-  display: none;
-}
-.nav__bottom .navigation .yearly {
-  display: none;
-}
-@media screen and (max-width: 768px) {
-  .nav__bottom {
-    margin-left: 12vw;
-    margin-right: 2%;
-    padding-top: 12vw;
-  }
-  .nav__bottom .navigation {
-    margin: 0;
   }
 }
 
@@ -1468,28 +1412,21 @@ mainvisual
 }
 
 .section-about {
+  background-color: #f0eef3;
   color: #320050;
   font-family: "Noto Sans JP", "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic", sans-serif;
   padding: 54px 0 170px;
-  margin-left: 144px;
 }
 @media screen and (max-width: 768px) {
   .section-about {
     padding: 50px 0 29.197080292%;
-    margin-left: 12vw;
   }
-}
-.section-about .section-inner {
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
 }
 .section-about .about-main {
   margin: 9.1666666667% auto 8.3333333333%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
 }
 @media screen and (max-width: 768px) {
   .section-about .about-main {
@@ -1521,7 +1458,6 @@ mainvisual
   font-size: 30px;
   font-weight: 600;
   font-family: adobe-garamond-pro, "Noto Sans JP", "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic", sans-serif;
-  font-style: italic;
 }
 @media screen and (max-width: 768px) {
   .section-about .about-main_textblock .title {
@@ -1670,7 +1606,6 @@ mainvisual
   .section-about .about-member_text p {
     font-weight: 400;
     font-size: 16px;
-    width: 100%;
   }
 }
 .section-about .about-recruit {
@@ -1680,7 +1615,6 @@ mainvisual
   padding: 6.4166666667% 0 0;
   justify-content: space-between;
   align-items: center;
-  padding-right: 10%;
 }
 @media screen and (max-width: 768px) {
   .section-about .about-recruit {

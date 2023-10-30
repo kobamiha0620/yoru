@@ -1,13 +1,15 @@
 /* !
-Theme Name: yoru-theme
+Theme Name: yoru-theme-re
 */
 
 @use 'compornent/button';
 @use 'compornent/modal';
 @use 'compornent/menu';
+@use 'compornent/worklist';
 
 @use 'pages/header';
 @use 'pages/footer';
+@use 'pages/single';
 
 @use 'pages/home';
 @use 'pages/works';
@@ -37,3 +39,5 @@ a {
 .g-wrapper {
   overflow-x: hidden;
 }
+
+

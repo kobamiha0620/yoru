@@ -2,8 +2,9 @@
 
 .worklist-section {
   // 1366, 1200
-  margin: get-percent-size(1200, 65) 0 0;
+  margin: get-percent-size(1200, 26) 0 0;
   padding: 0 0 get-percent-size(1200, 110);
+  // width: 100%;
   .worklist-title {
     color: $PALETTE_PURE_WHITE;
     font-family: $FONTFAMILY_EN;
@@ -11,7 +12,7 @@
     font-weight: $SEMIBOLD;
   }
   .worklists {
-    margin: get-percent-size(1200, 62) auto 0;
+    margin: get-percent-size(1200, 24) auto 0;
     .work-postitem {
       position: relative;
       margin: 0 0 16px;

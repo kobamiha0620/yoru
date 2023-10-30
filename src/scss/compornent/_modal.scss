@@ -326,3 +326,193 @@ modal inner content layout
     z-index: 15;
   }
 }
+
+
+
+/* =================================================================
+modal common style
+=================================================================*/
+.modal-area {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  transform: translate(0%, -50%);
+  overflow-y: auto;
+  max-width: 1140px;
+  width: 83.4553440703%;
+  min-height: 80vh;
+  z-index: 12;
+  background-color: #f0eef3;
+  display: none;
+  opacity: 0;
+}
+.modal-area.is-open {
+  display: block;
+  animation: framein 0.5s ease-in-out forwards;
+}
+.modal-area.close-anime {
+  animation: frameout 0.3s ease-in-out forwards;
+}
+@media screen and (max-width: 768px) {
+  .modal-area {
+    width: 90.6666666667%;
+    margin: 0;
+    left: auto;
+    right: 0;
+    min-height: 90vh;
+    min-height: calc(var(--vh, 1vh) * 90);
+  }
+  .modal-area.is-open {
+    display: block;
+    animation: frameinSp 0.5s ease-in-out forwards;
+  }
+  .modal-area.close-anime {
+    animation: frameoutSp 0.3s ease-in-out forwards;
+  }
+}
+
+.modal-movie-dialog {
+  visibility: hidden;
+  width: 80%;
+  height: 0;
+  padding-top: 43.746%;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.5s;
+}
+.modal-movie-dialog > * {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s;
+}
+.modal-movie-dialog.is-open {
+  visibility: visible;
+  opacity: 1;
+  z-index: 13;
+}
+.modal-movie-dialog.is-open > * {
+  opacity: 1;
+}
+
+.modal-bg,
+.modal-movie-bg {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 12;
+}
+
+.modal-bg {
+  display: none;
+  backdrop-filter: blur(2px);
+}
+.modal-bg.is-open {
+  display: block;
+  animation: fadein 0.3s ease-in-out forwards;
+}
+.modal-bg.close-anime {
+  animation: fadeout 0.3s ease-in-out forwards;
+  pointer-events: none;
+}
+
+.modal-movie-bg {
+  visibility: hidden;
+  transition: 0.5s;
+}
+.modal-movie-bg.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* =================================================================
+modal open animation
+=================================================================*/
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes framein {
+  80% {
+    opacity: 0;
+    transform: translate(-30%, -50%);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes frameout {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100%, -50%);
+  }
+}
+/* =============================
+SP 
+*/
+@keyframes frameinSp {
+  80% {
+    opacity: 0;
+    transform: translate(100%, -50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0%, -50%);
+  }
+}
+@keyframes frameoutSp {
+  0% {
+    opacity: 1;
+    transform: translate(0%, -50%);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100%, -50%);
+  }
+}
+/* =================================================================
+modal inner content layout
+=================================================================*/

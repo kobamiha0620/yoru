@@ -78,15 +78,21 @@
   <!-- 共通リソース -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/odd5djy.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reset.css" type="text/css" media="all">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css?2221" type="text/css" media="all">
+  <!-- <link rel="stylesheet" href="<#?php echo get_template_directory_uri(); ?>/style_renew.css" type="text/css" media="all"> -->
 
 
   <!-- ADD -->
   <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/include/img/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/dist/images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="<?php echo get_template_directory_uri(); ?>/dist/images/apple-touch-icon.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
@@ -94,9 +100,12 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/src/js/common.js"></script>
   <?php wp_head(); ?>
-  <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/dist/images/cropped-yoru_icon_04-32x32.jpg" sizes="32x32" />
-  <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/dist/images/cropped-yoru_icon_04-192x192.jpg" sizes="192x192" />
-  <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/dist/images/cropped-yoru_icon_04-180x180.jpg" />
+  <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/dist/images/cropped-yoru_icon_04-32x32.jpg"
+    sizes="32x32" />
+  <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/dist/images/cropped-yoru_icon_04-192x192.jpg"
+    sizes="192x192" />
+  <link rel="apple-touch-icon"
+    href="<?php echo get_template_directory_uri(); ?>/dist/images/cropped-yoru_icon_04-180x180.jpg" />
 </head>
 
 
@@ -104,6 +113,7 @@
 
 <body <?php body_class(); ?>>
   <div class="g-wrapper">
+
     <span style="display: none;">
       <?php if (is_page()) {
         echo 'is_page';
@@ -117,21 +127,75 @@
     <header id="g-header">
       <!-- -menu-open -->
       <?php if (is_front_page()) : ?>
-        <span class="site-title">Creative label “yoru”</span>
+      <span class="site-title">CREATIVE LABEL “YORU”</span>
       <?php else : ?>
-        <a href="/" class="site-title">Creative label “yoru”</a>
+      <a href="/" class="site-title">CREATIVE LABEL “YORU”</a>
       <?php endif; ?>
+
+
       <div id="header-menu">
-        Menu
+
+        <div class="header__btn">
+          <div class="header__btn--area"><span></span><span></span></div>
+        </div>
+
       </div>
+
+      <div class="header__fixed">
+
+        <div class="header__pcmenu">
+          <h2 class="header__feature">CREATIVE DIRECTION<br>AND<br>VISUAL PRODUCE</h2>
+
+          <a class="header__logo" href="/">yoru</a>
+
+          <div id="header-menu-pc">
+            <div class="menu-links">
+            <div class="link"><a href="/#work">WORK</a></div>
+              <div class="link"><a href="/about">ABOUT</a></div>
+              <button class="link" type="button" id="open-movie-modal-pc" data-movie-id="CvcfzV9PI_Y">REEL</button>
+
+              <a href="mailto:info@yoru.ltd"><span class="link">CONTACT</span></a>
+            </div>
+
+          </div>
+
+        </div>
+
+        <?php
+
+      add_filter( 'get_archives_link', 'my_archives_link' );
+      function my_archives_link( $output ) {
+        $output = preg_replace('/<\/a>\s*( )\((\d+)\)/','（$2）</a>',$output);
+        return $output;
+      }
+      ?>
+
+
+
+
+        <?php if (!is_page('about')) : ?>
+          <?php include('include/nav.php') ?>
+
+
+        <?php endif; ?>
+
+      </div>
+
+
+
+
+
       <div class="header-snslink">
         <ul>
-          <li class="linkitem">
-            <a href="https://www.instagram.com/y___o___r___u/" target="_blank" rel="noopener">Instagram</a>
+        <li class="linkitem">
+            <a href="https://www.instagram.com/y___o___r___u/" target="_blank" rel="noopener"
+              class="instagram">Instagram</a>
           </li>
           <li class="linkitem">
-            <a href="https://twitter.com/yorunoraita" target="_blank" rel="noopener">Twitter</a>
+            <a href="https://twitter.com/yorunoraita" target="_blank" rel="noopener" class="x">Twitter</a>
           </li>
+
+
         </ul>
       </div>
       <?php include('include/menu.php') ?>

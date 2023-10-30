@@ -9,9 +9,9 @@ Template Name: aboutpage template
 
 <section class="section-about">
   <div class="section-inner">
-    <div class="breadcrumbs">
+    <!-- <div class="breadcrumbs">
       <a href="/">Top</a> > About
-    </div>
+    </div> -->
 
     <?php the_content(); ?>
 

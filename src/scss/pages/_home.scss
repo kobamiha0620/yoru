@@ -1,16 +1,22 @@
 @use "../tools/global" as *;
+body{
+  background-color: $bc_grey;
+
+}
 main {
   margin: 0 auto;
-  background-color: $PALETTE_PURE_BLACK;
 }
 .wrap {
   width: get-percent-size(1366, 1200);
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  padding-left: calc( 144px - 1%);
+  // max-width: 1200px;
+  margin: 0;
   // min-height: 100vh;
 
   @include media-screen-sp() {
-    width: get-percent-size(750, 686);
+    // width: get-percent-size(750, 686);
+    padding-left: calc( 12vw - 1.8vw);
   }
 }
 

@@ -6,6 +6,14 @@
   }
 } //PC時スタイル
 
+@mixin media-screen-tb {
+  @media screen and (max-width: $MAX_CONTENT_WIDTH_PC) {
+    @content;
+  }
+} //タブレットサイズ
+
+
+
 @mixin media-screen-sp {
   @media screen and (max-width: $BREAK_POINT) {
     @content;

@@ -70,7 +70,7 @@ function compile(done) {
 
 //   }"../assets/css/
   const watchTask = (done) => {
-	watch(["./**", "!./style.css"], series(compile, bsReload));
+	watch(["./**", "!./style.css", "!./style_renew.css"], series(compile, bsReload));
 
 	done();
 };

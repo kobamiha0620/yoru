@@ -1,20 +1,53 @@
 @use '../tools/global' as *;
 
 footer {
+  padding-top: 144px;
   .footer-inner {
-    background-color: #1e1e1e;
     text-align: center;
     font-family: $FONTFAMILY_EN;
-    color: $PALETTE_PURE_WHITE;
+    color: #000;
     padding: 7px 0;
     font-size: 14px;
+  }
+  @include media-screen-sp() {
+    padding-top: 20vw;
+
   }
 }
 
 .page-template-page-about {
   footer {
     .footer-inner {
-      background-color: $PALETTE_DIRTY_PURPLE;
     }
   }
 }
+
+
+.nav__bottom{
+  margin-left: 144px;
+  margin-right: 3%;
+  padding-top: 144px;
+  box-sizing: border-box;
+  @include fz(16);
+  font-family: $FONTFAMILY_EN;
+
+  .navigation{
+    justify-content: flex-end;
+    &__ttl{
+      display: none;
+    }
+    .yearly{
+      display: none;
+    }
+  }
+  @include media-screen-sp() {
+    margin-left: 12vw;
+    margin-right: 2%;
+    padding-top: 12vw;
+    .navigation{
+      margin: 0;
+    }
+  }
+
+}
+

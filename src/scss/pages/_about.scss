@@ -11,19 +11,27 @@
 }
 
 .section-about {
-  background-color: $PALETTE_LIGHT_PURPLE;
   color: $PALETTE_DIRTY_PURPLE;
   font-family: $FONTFAMILY_JA;
   padding: 54px 0 170px;
+  margin-left: 144px;
+
   // section-inner style.scss
   @include media-screen-sp() {
     padding: 50px 0 get-percent-size(685, 200);
+    margin-left: 12vw;
+  }
+  .section-inner{
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
   }
   .about-main {
     margin: get-percent-size(1200, 110) auto get-percent-size(1200, 100);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
     @include media-screen-sp() {
       margin: get-percent-size(685, 240) auto get-percent-size(685, 173);
       display: block;
@@ -49,6 +57,7 @@
         font-size: 30px;
         font-weight: $SEMIBOLD;
         font-family: $FONTFAMILY_EN;
+        font-style: italic;
         @include media-screen-sp() {
           font-size: 25px;
         }
@@ -179,6 +188,7 @@
         @include media-screen-sp() {
           font-weight: 400;
           font-size: 16px;
+          width: 100%;
         }
       }
     }
@@ -190,7 +200,7 @@
     padding: get-percent-size(1200, 77) 0 0;
     justify-content: space-between;
     align-items: center;
-
+    padding-right: 10%;
     @include media-screen-sp() {
       display: block;
       margin: 0 auto;
