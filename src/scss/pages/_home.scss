@@ -1,7 +1,10 @@
 @use "../tools/global" as *;
+
 body{
   background-color: $bc_grey;
-
+}
+body.reabout, body.member, body.reel{
+  background-color: #000;
 }
 main {
   margin: 0 auto;

@@ -2,17 +2,17 @@
 /**
  * yoru's site theme
  */
-function theme_setup()
+function theme_setuprenew()
 {
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(500, 500, false);
     add_image_size('mobile_thum', 163, 163, false);
 }
-add_action('after_setup_theme', 'theme_setup');
+add_action('after_setup_theme', 'theme_setuprenew');
 
 
 // モバイル端末の判定
-function is_mobile()
+function is_mobile_renew()
 {
     $useragents = array(
         'iPhone', // iPhone
@@ -34,16 +34,16 @@ function is_mobile()
 }
 
 
-function gettmplurl($atts, $content = null)
+function gettmplurlrenew($atts, $content = null)
 {
     return get_template_directory_uri();
 }
-    add_shortcode('tmplurl', 'gettmplurl');
+    add_shortcode('tmplurl', 'gettmplurlrenew');
 
 
 //ACF 設定
-  add_action('acf/init', 'my_acf_init_block_types');
-  function my_acf_init_block_types()
+  add_action('acf/init', 'my_acf_init_block_types_renew');
+  function my_acf_init_block_types_renew()
   {
 
       // Check function exists.
@@ -79,28 +79,28 @@ function gettmplurl($atts, $content = null)
 //   add_action('wp_enqueue_scripts', 'my_enqueue');
 
 
-  function view_id()
+  function view_id_renew()
   {
       global $id;
       $id = $_POST['id'];
       echo $id;
       die();
   }
-add_action('wp_ajax_view_id', 'view_id');
-add_action('wp_ajax_nopriv_view_id', 'view_id');
+add_action('wp_ajax_view_id', 'view_id_renew');
+add_action('wp_ajax_nopriv_view_id', 'view_id_renew');
 
 
 //カテゴリ名を取得する関数を登録
-add_action('rest_api_init', 'register_category_name');
+add_action('rest_api_init', 'register_category_name_renew');
 
-function register_category_name()
+function register_category_name_renew()
 {
     //register_rest_field関数を用いget_category_name関数からカテゴリ名を取得し、追加する
     register_rest_field(
         'post',
         'category_name',
         array(
-            'get_callback'    => 'get_category_name'
+            'get_callback'    => 'get_category_name_renew'
         )
     );
 }
@@ -126,7 +126,7 @@ function exclude_category_filter( $query ) {
  add_action( 'pre_get_posts', 'exclude_category_filter' );
  
 //$objectは現在の投稿の詳細データが入る
-function get_category_name($object)
+function get_category_name_renew($object)
 {
     $category = get_the_category($object[ 'id' ]);
     for ($i = 0; $i < count($category); ++$i) {
@@ -150,8 +150,8 @@ add_filter('allowed_block_types_all', function ($allowed_block_types, $block_edi
     return $allowed_block_types;
 }, 10, 2);
 
-add_action('init', 'remove_block_editor_options');
-function remove_block_editor_options()
+add_action('init', 'remove_block_editor_options_renew');
+function remove_block_editor_options_renew()
 {
     remove_post_type_support('post', 'excerpt');             // 抜粋
   remove_post_type_support('post', 'comments');            // コメント
@@ -159,7 +159,7 @@ function remove_block_editor_options()
 };
 
 
-function custom_hidden_post_page_sticky()
+function custom_hidden_post_page_sticky_renew()
 {
     ?>
 <style type="text/css">
@@ -169,10 +169,10 @@ function custom_hidden_post_page_sticky()
 </style>
 <?php
 }
-add_action('admin_print_styles-post.php', 'custom_hidden_post_page_sticky'); //スタイルを直接書き込む
+add_action('admin_print_styles-post.php', 'custom_hidden_post_page_sticky_renew'); //スタイルを直接書き込む
 
 //「新規投稿の追加」で表示される「ブログのトップに固定」「レビュー待ち」を非表示
-function custom_hidden_postnew_page_sticky()
+function custom_hidden_postnew_page_sticky_renew()
 {
     ?>
 <style type="text/css">
@@ -182,12 +182,12 @@ function custom_hidden_postnew_page_sticky()
 </style>
 <?php
 }
-add_action('admin_print_styles-post-new.php', 'custom_hidden_postnew_page_sticky'); //スタイルを直接書き込む
+add_action('admin_print_styles-post-new.php', 'custom_hidden_postnew_page_sticky_renew'); //スタイルを直接書き込む
 
 add_theme_support('title-tag');
 
 //アーカイブ
-function post_has_archive($args, $post_type){
+function post_has_archive_renew($args, $post_type){
     if('post'== $post_type){
       $args['rewrite']=true;
       $args['has_archive']='works';
@@ -195,7 +195,7 @@ function post_has_archive($args, $post_type){
     return $args;
   }
   
-  add_filter('register_post_type_args', 'post_has_archive', 10, 2);
+  add_filter('register_post_type_args', 'post_has_archive_renew', 10, 2);
     
   function my_body_class($classes)
   {
@@ -219,5 +219,3 @@ remove_action('wp_head', '_wp_render_title_tag', 1);
 remove_action('wp_print_styles', 'print_emoji_styles');// 絵文字に関するCSS
 remove_action('admin_print_scripts', 'print_emoji_detection_script');// 絵文字に関するJavaScript
 remove_action('admin_print_styles', 'print_emoji_styles');// 絵文字に関するCSS
-
-

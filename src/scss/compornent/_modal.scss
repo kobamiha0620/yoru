@@ -236,9 +236,11 @@ modal inner content layout
 
       a {
         text-decoration: underline;
+        -webkit-text-decoration: underline;
 
         &:hover {
           text-decoration: none;
+          -webkit-text-decoration: none;
         }
       }
 

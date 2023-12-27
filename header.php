@@ -85,7 +85,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://use.typekit.net/odd5djy.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/reset.css" type="text/css" media="all">
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css?2221" type="text/css" media="all">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" type="text/css" media="all">
   <!-- <link rel="stylesheet" href="<#?php echo get_template_directory_uri(); ?>/style_renew.css" type="text/css" media="all"> -->
 
 
@@ -110,7 +110,6 @@
 
 
 
-
 <body <?php body_class(); ?>>
   <div class="g-wrapper">
 
@@ -127,9 +126,12 @@
     <header id="g-header">
       <!-- -menu-open -->
       <?php if (is_front_page()) : ?>
-      <span class="site-title">CREATIVE LABEL “YORU”</span>
+        <span class="feature__ttl">CREATIVE LABE “yoru”</span>
+      <!-- <span class="site-title">CREATIVE LABEL</span>  <span class="site-title__small">“yoru”</span> -->
       <?php else : ?>
-      <a href="/" class="site-title">CREATIVE LABEL “YORU”</a>
+        <a href="/" class="feature__ttl">CREATIVE LABE “yoru”</a>
+
+      <!-- <a href="/" class="site-title">CREATIVE LABEL</a> <span class="site-title__small">“yoru”</span> -->
       <?php endif; ?>
 
 
@@ -151,9 +153,8 @@
           <div id="header-menu-pc">
             <div class="menu-links">
             <div class="link"><a href="/#work">WORK</a></div>
-              <div class="link"><a href="/about">ABOUT</a></div>
-              <button class="link" type="button" id="open-movie-modal-pc" data-movie-id="CvcfzV9PI_Y">REEL</button>
-
+              <div class="link"><a href="/reabout/">ABOUT</a></div>
+              <!-- <button class="link" type="button" id="open-movie-modal-pc" data-movie-id="CvcfzV9PI_Y">REEL</button> -->
               <a href="mailto:info@yoru.ltd"><span class="link">CONTACT</span></a>
             </div>
 
@@ -173,9 +174,8 @@
 
 
 
-        <?php if (!is_page('about')) : ?>
+        <?php if (!is_page(array('reabout', 'member', 'reel'))) : ?>
           <?php include('include/nav.php') ?>
-
 
         <?php endif; ?>
 
@@ -188,13 +188,15 @@
       <div class="header-snslink">
         <ul>
         <li class="linkitem">
-            <a href="https://www.instagram.com/y___o___r___u/" target="_blank" rel="noopener"
+            <a href="https://instagram.com/yoru_label?igshid=MzMyNGUyNmU2YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener"
               class="instagram">Instagram</a>
           </li>
           <li class="linkitem">
-            <a href="https://twitter.com/yorunoraita" target="_blank" rel="noopener" class="x">Twitter</a>
+            <a href="https://twitter.com/staff_yoru?s=21&t=MmpHM5WEjCXWenK-8NCpQA" target="_blank" rel="noopener" class="x">Twitter</a>
           </li>
-
+          <li class="linkitem">
+            <a href="/reel/" class="reel">REEL</a>
+          </li> 
 
         </ul>
       </div>

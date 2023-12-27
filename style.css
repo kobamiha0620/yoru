@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* !
 Theme Name: yoru-theme-re
+
 */
 button {
   background-color: transparent;
@@ -364,9 +365,11 @@ modal inner content layout
 }
 .work-entry-inner .work-single-content a {
   text-decoration: underline;
+  -webkit-text-decoration: underline;
 }
 .work-entry-inner .work-single-content a:hover {
   text-decoration: none;
+  -webkit-text-decoration: none;
 }
 .work-entry-inner .work-single-content ul {
   margin: 0 auto 20px;
@@ -699,7 +702,7 @@ modal inner content layout
 #open-menu .menu-inner {
   height: 100%;
   padding: 0;
-  padding: 22px 30px;
+  padding: 22px 40px;
 }
 #open-menu .menu-inner .menu-links .link {
   font-size: 1.125rem;
@@ -719,31 +722,10 @@ modal inner content layout
   width: 100%;
 }
 .worklist__blc {
-  min-width: 15.8%;
-  max-width: 15.8%;
+  min-width: 32.1%;
+  max-width: 32.1%;
   width: 100%;
-  margin: 0 0 20px 0.8%;
-}
-@media screen and (max-width: 1480px) {
-  .worklist__blc {
-    min-width: 19%;
-    max-width: 19%;
-    margin-left: 1%;
-  }
-}
-@media screen and (max-width: 1080px) {
-  .worklist__blc {
-    min-width: 24.2%;
-    max-width: 24.2%;
-    margin-left: 0.8%;
-  }
-}
-@media screen and (max-width: 900px) {
-  .worklist__blc {
-    min-width: 32%;
-    max-width: 32%;
-    margin-left: 1.3%;
-  }
+  margin: 0 0 20px 1.2%;
 }
 @media screen and (max-width: 768px) {
   .worklist__blc {
@@ -776,6 +758,13 @@ modal inner content layout
   font-size: 0.875rem;
   padding: 3px 0;
 }
+@media screen and (max-width: 768px) {
+  .worklist__name {
+    font-size: 0.75rem;
+    line-height: 0.9;
+    padding: 2px 0;
+  }
+}
 .worklist__ttl {
   display: block;
   margin-top: -1px;
@@ -783,9 +772,37 @@ modal inner content layout
 .worklist__ttl span {
   display: inline;
   background: #FFF;
-  font-size: 0.875rem;
-  line-height: 1.2;
+  font-size: 0.75rem;
+  line-height: 1;
   color: #000;
+}
+@media screen and (max-width: 768px) {
+  .worklist__ttl {
+    display: inline-block;
+  }
+  .worklist__ttl span {
+    font-size: 0.625rem;
+    line-height: 0.9;
+    padding: 2px 0;
+  }
+}
+
+.worklist__blc a:hover {
+  opacity: 1;
+}
+.worklist__imgwrap:hover {
+  opacity: 0.7;
+}
+.worklist__imgwrap--mouseover {
+  background-size: cover;
+}
+.worklist__imgwrap--mouseover img {
+  opacity: 1;
+  transition: all 0.5s;
+}
+.worklist__imgwrap--mouseover:hover img {
+  opacity: 0;
+  transition: all 0.5s;
 }
 
 #g-header {
@@ -804,11 +821,46 @@ modal inner content layout
   font-style: italic;
   line-height: 0.9;
 }
+#g-header .site-title__small {
+  display: inline-block;
+  transform: rotate(90deg) translateX(0);
+  transform-origin: top left;
+  left: 69px;
+  top: 7.7em;
+  position: fixed;
+  font-size: 4.5rem;
+  font-style: italic;
+  line-height: 0.9;
+}
 @media screen and (max-width: 768px) {
   #g-header .site-title {
     font-size: 1.5rem;
     left: 18px;
     top: 18px;
+  }
+  #g-header .site-title__small {
+    font-size: 1.5rem;
+    left: 23px;
+    top: 8.5em;
+  }
+}
+#g-header .feature__ttl {
+  background: url("./dist/images/icon/feature_yoru_black.svg") no-repeat 0 0;
+  white-space: nowrap;
+  text-indent: -9999px;
+  width: 50px;
+  height: 723px;
+  background-size: 100% auto;
+  left: -1px;
+  top: 8px;
+  position: fixed;
+}
+@media screen and (max-width: 768px) {
+  #g-header .feature__ttl {
+    width: 18px;
+    height: 261px;
+    background-size: 100% auto;
+    left: -1px;
   }
 }
 #g-header #header-menu {
@@ -826,7 +878,7 @@ modal inner content layout
     cursor: pointer;
     z-index: 12;
     top: 18px;
-    right: 18px;
+    right: 1px;
   }
   #g-header #header-menu .header__btn {
     display: block;
@@ -857,6 +909,9 @@ modal inner content layout
   #g-header #header-menu.active .header__btn--area {
     transform: rotateY(-360deg);
   }
+  #g-header #header-menu.active .header__btn span {
+    background: #000;
+  }
   #g-header #header-menu.active .header__btn span:nth-of-type(1) {
     top: 15px;
     left: 0;
@@ -875,15 +930,15 @@ modal inner content layout
   padding: 0;
 }
 #g-header #header-menu-pc .menu-links .link {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   line-height: 1;
-  font-style: italic;
   display: block;
-  font-family: adobe-garamond-pro, "Noto Sans JP", "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic", sans-serif;
+  font-family: presicav, sans-serif;
+  font-weight: 300;
   transition: 0.5s;
 }
 #g-header #header-menu-pc .menu-links .link:hover {
-  color: #FFF;
+  color: #888;
   transition: 0.5s;
 }
 @media screen and (max-width: 768px) {
@@ -893,17 +948,18 @@ modal inner content layout
 }
 #g-header .header-snslink {
   position: fixed;
-  z-index: 12;
-  right: 17px;
-  top: 22px;
+  z-index: 10;
+  right: 18px;
+  top: 1px;
   width: 30px;
   transform-origin: 0 0;
   transform: none;
 }
 @media screen and (max-width: 768px) {
   #g-header .header-snslink {
-    top: 72px;
-    right: 18px;
+    top: 290px;
+    right: auto;
+    left: 6px;
   }
 }
 #g-header .header-snslink .linkitem {
@@ -911,45 +967,35 @@ modal inner content layout
   margin: 0 0 27px;
 }
 #g-header .header-snslink .linkitem a.instagram {
-  background: url("./dist/images/icon/logo_insta.svg") no-repeat 0 0;
+  background: url("./dist/images/icon/yoru-icon_instagram.gif") no-repeat 0 0;
   width: 30px;
   height: 30px;
   white-space: nowrap;
   text-indent: -9999px;
   display: block;
   background-size: 100% auto;
-  transition: 0.3s;
-}
-#g-header .header-snslink .linkitem a.instagram:hover {
-  background: url("./dist/images/icon/logo_insta_white.svg") no-repeat 0 0;
-  transition: 0.3s;
-  background-size: 100% auto;
-}
-@media screen and (max-width: 768px) {
-  #g-header .header-snslink .linkitem a.instagram:hover {
-    background: url("./dist/images/icon/logo_insta.svg") no-repeat 0 0;
-    background-size: 100% auto;
-  }
 }
 #g-header .header-snslink .linkitem a.x {
-  background: url("./dist/images/icon/logo_x.svg") no-repeat 0 0;
+  background: url("./dist/images/icon/yoru-icon_X.gif") no-repeat 0 0;
   width: 30px;
   height: 30px;
   white-space: nowrap;
   text-indent: -9999px;
   display: block;
   background-size: 100% auto;
-  transition: 0.3s;
 }
-#g-header .header-snslink .linkitem a.x:hover {
-  background: url("./dist/images/icon/logo_x_white.svg") no-repeat 0 0;
-  transition: 0.3s;
+#g-header .header-snslink .linkitem a.reel {
+  background: url("./dist/images/icon/yoru-icon_reel.gif") no-repeat 0 0;
+  width: 30px;
+  height: 30px;
+  white-space: nowrap;
+  text-indent: -9999px;
+  display: block;
   background-size: 100% auto;
 }
 @media screen and (max-width: 768px) {
-  #g-header .header-snslink .linkitem a.x:hover {
-    background: url("./dist/images/icon/logo_x.svg") no-repeat 0 0;
-    background-size: 100% auto;
+  #g-header .header-snslink .linkitem {
+    margin: 0 0 18px;
   }
 }
 
@@ -974,17 +1020,17 @@ modal inner content layout
 }
 .header__logo {
   background: url("./dist/images/icon/main-logo-black.png") no-repeat 0 0;
+  background-size: 100% auto;
   width: 240px;
   height: 96px;
   margin-top: 60px;
   white-space: nowrap;
   text-indent: -9999px;
   display: block;
-  background-size: 100% auto;
   transition: 0.5s;
 }
 .header__logo:hover {
-  background: url("./dist/images/icon/main-logo-white.png") no-repeat 0 0;
+  background: url("./dist/images/icon/main-logo-grey02.png") no-repeat 0 0;
   transition: 0.5s;
   background-size: 100% auto;
 }
@@ -998,10 +1044,10 @@ modal inner content layout
   .header__logo {
     width: 136px;
     height: 55px;
-    margin: 7.3vw 0 0 12vw;
+    margin: 7.3vw auto 0;
   }
   .header__logo:hover {
-    background: url("./dist/images/icon/main-logo-black.png") no-repeat 0 0;
+    background: url("./dist/images/icon/main-logo-grey02.png") no-repeat 0 0;
     transition: 0.6s;
     background-size: 100% auto;
   }
@@ -1030,17 +1076,16 @@ modal inner content layout
 }
 
 .navigation {
-  display: flex;
-  align-items: flex-end;
+  width: 100%;
 }
 .navigation__ttl {
-  font-size: 2.25rem;
+  font-size: 2.125rem;
   font-style: italic;
   margin: 0 36px 0 0;
 }
 .navigation__lists {
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   overflow: hidden;
 }
 .navigation__lists li {
@@ -1049,7 +1094,7 @@ modal inner content layout
 }
 .navigation__lists li::before {
   content: "/";
-  padding-right: 6px;
+  padding-right: 2px;
   display: inline-block;
 }
 .navigation__lists li:first-child {
@@ -1064,53 +1109,130 @@ modal inner content layout
 }
 .navigation__lists li a:hover {
   transition: 0.3s;
-  color: #FFF;
-}
-@media screen and (max-width: 768px) {
-  .navigation__lists li a:hover {
-    color: #000;
-  }
+  text-decoration: line-through solid 1px;
+  -webkit-text-decoration: line-through solid 1px;
+  -webkit-text-decoration-line: line-through;
+  -webkit-text-decoration-thickness: 1px;
 }
 @media screen and (max-width: 768px) {
   .navigation {
     display: block;
-    margin: 0 90px 0 12vw;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 10px 0 12vw;
   }
   .navigation__ttl {
-    font-size: 1.5rem;
-    margin: 0 0 10px;
+    font-size: 1.375rem;
+    margin: 0 0 6px;
   }
   .navigation__lists {
-    font-size: 1rem;
+    font-size: 0.9375rem;
   }
 }
 
-body.category-motion-graphic .navigation__lists .category-motion-graphic a {
-  color: #FFF;
-}
-
-body.category-archive .navigation__lists .category-archive a {
-  color: #FFF;
-}
-
-body.category-artwork .navigation__lists .category-artwork a {
-  color: #FFF;
-}
-
-body.category-cm .navigation__lists .category-cm a {
-  color: #FFF;
-}
-
-body.category-video .navigation__lists .category-video a {
-  color: #FFF;
+.navigation__lists .dashed a {
+  text-decoration: line-through solid 1px;
+  -webkit-text-decoration: line-through solid 1px;
+  -webkit-text-decoration-line: line-through;
+  -webkit-text-decoration-thickness: 1px;
 }
 
 body.home .navigation__lists .home a {
-  color: #FFF;
+  text-decoration: line-through solid 1px;
+  -webkit-text-decoration: line-through solid 1px;
+  -webkit-text-decoration-line: line-through;
+  -webkit-text-decoration-thickness: 1px;
+}
+body.reabout .header__logo,
+body.member .header__logo,
+body.reel .header__logo {
+  background: url("./dist/images/icon/main-logo-white.png") no-repeat 0 0;
+  background-size: 100% auto;
+  width: 192px;
+  height: 77px;
+}
+body.reabout .header__logo:hover,
+body.member .header__logo:hover,
+body.reel .header__logo:hover {
+  background-size: 100% auto !important;
+  background: url("./dist/images/icon/main-logo-grey02.png") no-repeat 0 0;
+}
+@media screen and (max-width: 768px) {
+  body.reabout .header__logo:hover,
+  body.member .header__logo:hover,
+  body.reel .header__logo:hover {
+    background-size: 100% auto;
+    background: url("./dist/images/icon/main-logo-grey02.png") no-repeat 0 0;
+  }
 }
 
-body.others .navigation__lists .others a {
+body.reabout #g-header .linkitem a.instagram,
+body.member #g-header .linkitem a.instagram,
+body.reel #g-header .linkitem a.instagram {
+  background: url("./dist/images/icon/yoru-icon_instagram_white.gif") no-repeat 0 0;
+  width: 30px;
+  height: 30px;
+  background-size: 100% auto;
+}
+body.reabout #g-header .linkitem a.x,
+body.member #g-header .linkitem a.x,
+body.reel #g-header .linkitem a.x {
+  background: url("./dist/images/icon/yoru-icon_X_white.gif") no-repeat 0 0;
+  width: 30px;
+  height: 30px;
+  background-size: 100% auto;
+}
+body.reabout #g-header .linkitem a.reel,
+body.member #g-header .linkitem a.reel,
+body.reel #g-header .linkitem a.reel {
+  background: url("./dist/images/icon/yoru-icon_reel_white.gif") no-repeat 0 0;
+  width: 30px;
+  height: 30px;
+  background-size: 100% auto;
+}
+body.reabout #g-header #header-menu-pc .menu-links .link,
+body.member #g-header #header-menu-pc .menu-links .link,
+body.reel #g-header #header-menu-pc .menu-links .link {
   color: #FFF;
+}
+body.reabout #g-header #header-menu-pc .menu-links .link:hover,
+body.member #g-header #header-menu-pc .menu-links .link:hover,
+body.reel #g-header #header-menu-pc .menu-links .link:hover {
+  color: #888;
+}
+@media screen and (max-width: 768px) {
+  body.reabout #g-header #header-menu-pc,
+  body.member #g-header #header-menu-pc,
+  body.reel #g-header #header-menu-pc {
+    display: none;
+  }
+}
+body.reabout #g-header #header-menu .header__btn,
+body.member #g-header #header-menu .header__btn,
+body.reel #g-header #header-menu .header__btn {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  body.reabout #g-header #header-menu .header__btn,
+  body.member #g-header #header-menu .header__btn,
+  body.reel #g-header #header-menu .header__btn {
+    display: block;
+  }
+  body.reabout #g-header #header-menu .header__btn span,
+  body.member #g-header #header-menu .header__btn span,
+  body.reel #g-header #header-menu .header__btn span {
+    background: #FFF;
+  }
+  body.reabout #g-header #header-menu.active .header__btn span,
+  body.member #g-header #header-menu.active .header__btn span,
+  body.reel #g-header #header-menu.active .header__btn span {
+    background: #000;
+  }
+}
+body.reabout #g-header .feature__ttl,
+body.member #g-header .feature__ttl,
+body.reel #g-header .feature__ttl {
+  background: url("./dist/images/icon/feature_yoru_white.svg") no-repeat 0 0;
 }
 
 footer {
@@ -1119,9 +1241,9 @@ footer {
 footer .footer-inner {
   text-align: center;
   font-family: adobe-garamond-pro, "Noto Sans JP", "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic", sans-serif;
-  color: #000;
   padding: 7px 0;
   font-size: 14px;
+  color: #000;
 }
 @media screen and (max-width: 768px) {
   footer {
@@ -1129,11 +1251,16 @@ footer .footer-inner {
   }
 }
 
+body.reabout footer .footer-inner, body.member footer .footer-inner, body.reel footer .footer-inner {
+  color: #FFF;
+}
+
 .nav__bottom {
   margin-left: 144px;
   margin-right: 3%;
   padding-top: 144px;
   box-sizing: border-box;
+  color: #000;
   font-size: 1rem;
   font-family: adobe-garamond-pro, "Noto Sans JP", "ヒラギノ角ゴシック", "Hiragino Sans", YuGothic, "Yu Gothic", sans-serif;
 }
@@ -1174,6 +1301,16 @@ footer .footer-inner {
   font-size: 1.5rem;
   margin: 0 0 26px;
   width: 90%;
+  color: #000;
+}
+.blog__ttl span {
+  display: inline-block;
+  margin: 0 10px;
+}
+@media screen and (max-width: 768px) {
+  .blog__ttl {
+    font-size: 1.125rem;
+  }
 }
 .blog__cate {
   font-family: presicav, sans-serif;
@@ -1181,6 +1318,7 @@ footer .footer-inner {
   font-weight: 300;
   margin: 0 0 24px;
   width: 90%;
+  color: #000;
 }
 .blog__cate span {
   display: inline-block;
@@ -1195,10 +1333,16 @@ footer .footer-inner {
 }
 .blog p {
   width: 90%;
+  color: #000;
   font-weight: 300;
   font-family: presicav, sans-serif;
   line-height: 1.6;
   font-size: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .blog p {
+    font-size: 0.875rem;
+  }
 }
 .blog img {
   display: block;
@@ -1271,8 +1415,33 @@ footer .footer-inner {
   float: none;
 }
 
+.blog__cate span {
+  font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+  .blog__cate span {
+    font-size: 12px;
+  }
+}
+
+.blog__content p {
+  font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  .blog__content p {
+    font-size: 10px;
+    width: 96%;
+    max-width: 96%;
+    min-width: 96%;
+  }
+}
+
 body {
   background-color: #DDD;
+}
+
+body.reabout, body.member, body.reel {
+  background-color: #000;
 }
 
 main {
@@ -1792,11 +1961,120 @@ mainvisual
   }
 }
 
+.reelwrapper {
+  max-width: 90%;
+  margin-top: 10vw;
+}
+.reelwrapper .videoWrap {
+  padding-top: 56.25%;
+  width: 100%;
+  position: relative;
+  margin-top: 24px;
+}
+.reelwrapper .videoWrap video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.reabout__img {
+  display: block;
+  font-size: 0;
+  margin-bottom: 20px;
+}
+.reabout__txt {
+  color: #FFF;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .reabout__txt {
+    font-size: 0.75rem;
+  }
+}
+.reabout .member {
+  width: 100%;
+  color: #FFF;
+  padding-right: 10%;
+}
+.reabout .member__blc {
+  margin: 0 0 80px;
+}
+@media screen and (max-width: 768px) {
+  .reabout .member__blc {
+    margin: 0 0 14vw;
+  }
+}
+.reabout .member__subttl {
+  font-family: presicav, sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  margin: 30px 0 20px;
+}
+@media screen and (max-width: 768px) {
+  .reabout .member__subttl {
+    font-size: 0.9375rem;
+    margin: 20px 0 10px;
+  }
+}
+.reabout .member__title {
+  font-family: presicav, sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  margin-top: -7px;
+}
+@media screen and (max-width: 768px) {
+  .reabout .member__title {
+    font-size: 0.8125rem;
+    margin-bottom: 10px;
+    margin-top: -3px;
+  }
+}
+.reabout .member__txt {
+  color: #FFF;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .reabout .member__txt {
+    font-size: 0.75rem;
+  }
+}
+
+.page__ttl {
+  font-family: presicav, sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 1.75rem;
+  margin: 0 0 10px;
+  color: #FFF;
+  font-weight: 400;
+}
+@media screen and (max-width: 768px) {
+  .page__ttl {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrap.member-warp {
+    padding-right: 10.2vw;
+  }
+}
+
 html {
-  background-color: #DDDDDD;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -1816,4 +2094,15 @@ a {
 
 .g-wrapper {
   overflow-x: hidden;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+}
+
+footer {
+  position: sticky;
+  top: 100vh;
+  width: 100%;
 }

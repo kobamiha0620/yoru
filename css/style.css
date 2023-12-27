@@ -2,35 +2,29 @@
 Theme Name: yoru-theme-re
 
 */
-
 @use 'compornent/button';
 @use 'compornent/modal';
 @use 'compornent/menu';
 @use 'compornent/worklist';
-
 @use 'pages/header';
 @use 'pages/footer';
 @use 'pages/single';
-
 @use 'pages/home';
 @use 'pages/works';
 @use 'pages/about';
-
-
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   height: 100%;
   -webkit-text-size-adjust: 100%;
-
 }
 
-body{
+body {
   height: 100%;
   -webkit-text-size-adjust: 100%;
-
 }
+
 a {
   color: inherit;
 }
@@ -39,8 +33,10 @@ a {
   max-width: 1200px;
   width: calc(1200 / 1366 * 100%);
   margin: 0 auto;
+}
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  .section-inner {
     width: calc(685 / 750 * 100%);
   }
 }
@@ -49,12 +45,15 @@ a {
   overflow-x: hidden;
   height: 100%;
 }
-header{
-  width: 100%;
 
+header {
+  width: 100%;
 }
+
 footer {
+  position: -webkit-sticky;
   position: sticky;
   top: 100vh;
   width: 100%;
 }
+/*# sourceMappingURL=style.css.map */

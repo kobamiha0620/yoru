@@ -5,9 +5,9 @@ footer {
   .footer-inner {
     text-align: center;
     font-family: $FONTFAMILY_EN;
-    color: #000;
     padding: 7px 0;
     font-size: 14px;
+    color: #000;
   }
   @include media-screen-sp() {
     padding-top: 20vw;
@@ -15,9 +15,11 @@ footer {
   }
 }
 
-.page-template-page-about {
+body.reabout, body.member, body.reel{
   footer {
     .footer-inner {
+      color: #FFF;
+
     }
   }
 }
@@ -28,6 +30,7 @@ footer {
   margin-right: 3%;
   padding-top: 144px;
   box-sizing: border-box;
+  color: #000;
   @include fz(16);
   font-family: $FONTFAMILY_EN;
 

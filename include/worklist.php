@@ -14,61 +14,54 @@ $args = array(
             'compare' => '='
         ]
     ],);
-$wp_query = new WP_Query($args);
 
-if ($wp_query->have_posts()) :
-  while ($wp_query->have_posts()) : $wp_query->the_post();
-
-?>
+$wp_query = new WP_Query($args);?>
+<?php if ($wp_query->have_posts()) : ?>
+<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 
 
-<?php
-    echo '<div class="worklist__blc">';
-    echo '<a href="';
-    the_permalink();
-    echo '">';
-    the_post_thumbnail();
-
-    echo '<div id="';
-    the_ID();
-
-    echo'" class="worklist__txt">';
-
-
-    echo '<p class="worklist__name">';
-    the_field("artist_name");
-        echo '</p>';
-
-        echo '<p class="worklist__ttl"><span>';
-        the_title();
-        echo '</span></p>';
-
-        // echo '<div class="woklist__txt_category">';
-        //   $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; };
-        // echo '</div>';
+<div class="worklist__blc">
+    <a href="<?php the_permalink();?>"> 
       
-    echo '</div>';
+    <?php $mouseOver = get_post_meta($post->ID, 'img_mouseover', true);?>
+      <?php if(empty($mouseOver)):?>
+        <div class="worklist__imgwrap">
 
-        // echo '<div class="postitem-image">';
-        // if (is_mobile()) {
-        //     the_post_thumbnail('mobile_thum');
-        // } else {
-        //     the_post_thumbnail();
-        // }
-        // echo '</div>';
-        echo '</a>';
-        echo '</div>';
-  // echo "</a>";
-endwhile;
-else:
+        <?php the_post_thumbnail(); ?>
+
+        </div>
+      <?php else:?>
+        <div class="worklist__imgwrap--mouseover" style="background: url('<?php the_field("img_mouseover");?>'); background-size: cover; background-position: center center;">
+              <?php the_post_thumbnail(); ?>
+       </div>
+
+      <?php endif;?>
+
+
+
+   
+
+    <div id="<?php the_ID(); ?>" class="worklist__txt"> 
+      <div class="worklist__name--wrapper">
+        <p class="worklist__name"><?php the_field("artist_name"); ?></p>
+      </div>
+
+      <p class="worklist__ttl"><span><?php the_title(); ?></span></p>
+ 
+    </div>
+    </a>
+ </div>
+
+ <?php endwhile; ?>
+<?php else: ?>
+
   
-echo '<div class="error">';
-  echo '<p>お探しの記事は見つかりませんでした。</p>';
-  echo '</div>';
-endif;
-wp_reset_postdata();
+<div class="error">
+  <p>お探しの記事は見つかりませんでした。</p>
+</div>
+<?php endif; wp_reset_postdata(); ?>
 
-?>
+
 
 
 <?php
@@ -95,49 +88,45 @@ if ($wp_query02->have_posts()) :
 
 ?> 
  
-<?php
-    echo '<div class="worklist__blc">';
-    echo '<a href="';
-    the_permalink();
-    echo '">';
-    the_post_thumbnail();
-
-    echo '<div id="';
-    the_ID();
-
-    echo'" class="worklist__txt">';
-
-
-        echo '<p class="worklist__name">';
-        the_field("artist_name");
-        echo '</p>';
-
-        echo '<p class="worklist__ttl"><span>';
-        the_title();
-        echo '</span></p>';
-
-        // echo '<div class="woklist__txt_category">';
-        //   $cat = get_the_category(); $cat = $cat[0]; { echo $cat->cat_name; };
-        // echo '</div>';
+ <div class="worklist__blc">
+    <a href="<?php the_permalink();?>"> 
       
-    echo '</div>';
+    <?php $mouseOver = get_post_meta($post->ID, 'img_mouseover', true);?>
+      <?php if(empty($mouseOver)):?>
+        <div class="worklist__imgwrap">
 
-        // echo '<div class="postitem-image">';
-        // if (is_mobile()) {
-        //     the_post_thumbnail('mobile_thum');
-        // } else {
-        //     the_post_thumbnail();
-        // }
-        // echo '</div>';
-        echo '</a>';
-        echo '</div>';
-endwhile;
-else:
+        <?php the_post_thumbnail(); ?>
+
+        </div>
+      <?php else:?>
+        <div class="worklist__imgwrap--mouseover" style="background: url('<?php the_field("img_mouseover");?>'); background-size: cover; background-position: center center;">
+              <?php the_post_thumbnail(); ?>
+       </div>
+
+      <?php endif;?>
+
+
+
+   
+
+    <div id="<?php the_ID(); ?>" class="worklist__txt"> 
+      <div class="worklist__name--wrapper">
+        <p class="worklist__name"><?php the_field("artist_name"); ?></p>
+      </div>
+
+      <p class="worklist__ttl"><span><?php the_title(); ?></span></p>
+ 
+    </div>
+    </a>
+ </div>
+
+ <?php endwhile; ?>
+<?php else: ?>
+
   
-echo '<div class="error">';
-  echo '<p>お探しの記事は見つかりませんでした。</p>';
-  echo '</div>';
-endif;
-wp_reset_postdata();
+<div class="error">
+  <p>お探しの記事は見つかりませんでした。</p>
+</div>
+<?php endif; wp_reset_postdata(); ?>
 
-?>
+

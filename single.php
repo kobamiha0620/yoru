@@ -13,8 +13,7 @@
 
         <section class="blog" id="work">
 
-                <h2 class="blog__ttl"><?php the_title(); ?></h2>
-
+                <h2 class="blog__ttl"><?php the_field('artist_name'); ?><span>-</span><?php the_title(); ?></h2>
 
                 <!--カテゴリ-->
                 <p class="blog__cate">
@@ -28,8 +27,10 @@
 
                 <div class="blog__content">
                     <?php echo the_content(); ?>
-
                 </div>
+                
+               
+
         </section>
 
 

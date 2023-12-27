@@ -1,0 +1,181 @@
+{
+    "key": "group_65433c22f2349",
+    "title": "Aboutmember",
+    "fields": [
+        {
+            "key": "field_656012cb38bd5",
+            "label": "reabout_image",
+            "name": "reabout_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6560133238bd6",
+            "label": "reabout_txt",
+            "name": "reabout_txt",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_65433c288693e",
+            "label": "about_member_subttl",
+            "name": "about_member_subttl",
+            "type": "text",
+            "instructions": "お名前入力",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "RAITA NAKAMURA \/ 中村 雷太",
+            "placeholder": "RAITA NAKAMURA \/ 中村 雷太",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_654343a4879b6",
+            "label": "about_member_title",
+            "name": "about_member_title",
+            "type": "text",
+            "instructions": "Founder & Creative Director",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Founder & Creative Director",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_65433ca48693f",
+            "label": "about_member_txt",
+            "name": "about_member_txt",
+            "type": "textarea",
+            "instructions": "説明文",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "クリエイティブレーベル「yoru”の代表。1985年東京生まれ。18年“yoru”を設立。\r\nビジュアル制作をにした横断的なチームビルディング型のクリエイティブディレクションを得意とする。",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_65433cc986940",
+            "label": "about_contact_ttl",
+            "name": "about_contact_ttl",
+            "type": "text",
+            "instructions": "CONTACT",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "CONTACT",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_65433ce986941",
+            "label": "about_contact_mail",
+            "name": "about_contact_mail",
+            "type": "email",
+            "instructions": "メールアドレス",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "info@yoru.itd",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65433d0886942",
+            "label": "about_recruit_ttl",
+            "name": "about_recruit_ttl",
+            "type": "text",
+            "instructions": "RECRUIT",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "RECRUIT",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "1626"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1700801332
+}
